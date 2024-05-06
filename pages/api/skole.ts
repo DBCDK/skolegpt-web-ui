@@ -4,9 +4,10 @@ import { HuggingFaceStream } from '@/utils/server/huggingface';
 
 import { ChatBody, Message } from '@/types/chat';
 
-// import llamaTokenizer from 'llama-tokenizer-js'
-
+// @ts-ignore
+import mistralTokenizer from 'mistral-tokenizer-js'
 const llamaTokenizer = require('llama-tokenizer-js').default;
+
 
 export const config = {
   runtime: 'edge',
@@ -21,7 +22,7 @@ export const config = {
 // {{ user_msg_1 }} [/INST] {{ model_answer_1 }} </s><s>[INST] {{ user_msg_2 }} [/INST]
 
 
-const llama2Format = (sysPrompt: string, msgs: Message[]): string => {
+const llmFormat = (sysPrompt: string, msgs: Message[]): string => {
   let result = "<s>[INST] <<SYS>>\n"
   result += sysPrompt
   result += "\n<</SYS>>\n\n"
@@ -52,8 +53,9 @@ const handler = async (req: Request): Promise<Response> => {
 
     let messagesToSend: Message[] = [];
     for (let i = messages.length - 1; i >= 0; i--) {
-      const message = messages[i];
-      const tokens = llamaTokenizer.encode(llama2Format(promptToSend, [message, ...messagesToSend]))
+        const message = messages[i];
+        const tokens = mistralTokenizer.encode(llmFormat(promptToSend, [message, ...messagesToSend]))
+        //const tokens = llamaTokenizer.encode(llmFormat(promptToSend, [message, ...messagesToSend]))
       if (tokens.length > model.tokenLimit - 25) {
         break;
       }
@@ -65,8 +67,8 @@ const handler = async (req: Request): Promise<Response> => {
     // console.log({model, promptToSend, temperatureToUse, key, messagesToSend})
 
     // console.log("FROM THE FORMATTER::::")
-    // console.log(llama2Format(promptToSend, messagesToSend))
-    const formattedMessages = llama2Format(promptToSend, messagesToSend)
+    // console.log(llmFormat(promptToSend, messagesToSend))
+    const formattedMessages = llmFormat(promptToSend, messagesToSend)
     console.log("Sending request of token length:", formattedMessages.length)
     const stream = await HuggingFaceStream(temperatureToUse, topPToUse, formattedMessages);
 
