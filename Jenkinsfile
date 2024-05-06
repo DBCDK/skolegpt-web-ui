@@ -1,4 +1,5 @@
 #! groovy
+@Library('ai') _
 def workerNode = "devel11"
 def slackReceivers = "#ai-jenkins-warnings"
 
