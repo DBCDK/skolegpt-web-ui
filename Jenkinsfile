@@ -6,7 +6,6 @@ def slackReceivers = "#ai-jenkins-warnings"
 pipeline {
 	agent { label workerNode }
 	environment {
-		PACKAGE="skolegpt-web-ui"
 		DOCKER_TAG = "${env.BRANCH_NAME}-${env.BUILD_NUMBER}"
 		GITLAB_PRIVATE_TOKEN = credentials("ai-gitlab-api-token")
 	}
@@ -16,7 +15,11 @@ pipeline {
     stages {
 		stage("docker build") {
 			steps {
-                buildImage()
+				image = docker.build("docker-ai.artifacts.dbccloud.dk/skolegpt-web-ui:${DOCKER_TAG}", "--no-cache .")
+				image.push()
+				if(env.BRANCH_NAME == "master") {
+					image.push("latest")
+				}
 			}
 		}
 		stage("update staging version number for staging") {
