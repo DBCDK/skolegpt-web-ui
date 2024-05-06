@@ -6,6 +6,7 @@ def slackReceivers = "#ai-jenkins-warnings"
 pipeline {
 	agent { label workerNode }
 	environment {
+		PACKAGE="skolegpt-web-ui"
 		DOCKER_TAG = "${env.BRANCH_NAME}-${env.BUILD_NUMBER}"
 		GITLAB_PRIVATE_TOKEN = credentials("ai-gitlab-api-token")
 	}
@@ -18,24 +19,24 @@ pipeline {
                 buildImage()
 			}
 		}
-		// stage("update staging version number for staging") {
-		// 	agent {
-		// 		docker {
-		// 			label workerNode
-		// 			image "docker.dbc.dk/build-env"
-		// 			alwaysPull true
-		// 		}
-		// 	}
-		// 	when {
-		// 		branch "master"
-		// 	}
-		// 	steps {
-		// 		dir("deploy") {
-		// 			sh "set-new-version simple-suggest-1-1.yml ${env.GITLAB_PRIVATE_TOKEN} ai/simple-suggest-secrets ${env.DOCKER_TAG} -b staging"
-		// 		}
-		// 		build job: "ai/simple-suggest/simple-suggest-deploy/staging", wait: true
-		// 	}
-		// }
+		stage("update staging version number for staging") {
+			agent {
+				docker {
+					label workerNode
+					image "docker.dbc.dk/build-env"
+					alwaysPull true
+				}
+			}
+			when {
+				branch "master"
+			}
+			steps {
+				dir("deploy") {
+					sh "set-new-version skolegpt-web-ui-1-0.yml ${env.GITLAB_PRIVATE_TOKEN} ai/skolegpt-web-ui-secrets ${env.DOCKER_TAG} -b staging"
+				}
+				build job: "ai/skolegpt/skolegpt-web-ui/staging", wait: true
+			}
+		}
 		// stage("validate staging") {
 		// 	agent {
 		// 		docker {
