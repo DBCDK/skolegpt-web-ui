@@ -33,63 +33,33 @@ pipeline {
 				}
 			}
 			when {
-				branch "master"
+				branch "main"
 			}
 			steps {
 				dir("deploy") {
 					sh "set-new-version skolegpt-web-ui-1-0.yml ${env.GITLAB_PRIVATE_TOKEN} ai/skolegpt-web-ui-secrets ${env.DOCKER_TAG} -b staging"
 				}
-				build job: "ai/skolegpt/skolegpt-web-ui/staging", wait: true
+				build job: "ai/skolegpt/skolegpt-web-ui-deploy/staging", wait: true
 			}
 		}
-		// stage("validate staging") {
-		// 	agent {
-		// 		docker {
-		// 			label workerNode
-		// 			image "docker.dbc.dk/build-env"
-		// 			alwaysPull true
-		// 		}
-		// 	}
-		// 	when {
-		// 		branch "master"
-		// 	}
-		// 	steps {
-		// 		sh "webservice-validation http://simple-suggest-1-1.mi-staging.svc.cloud.dbc.dk deploy/validation.yml"
-		// 	}
-		// }
-		// stage("update version number for prod") {
-		// 	agent {
-		// 		docker {
-		// 			label workerNode
-		// 			image "docker.dbc.dk/build-env"
-		// 			alwaysPull true
-		// 		}
-		// 	}
-		// 	when {
-		// 		branch "master"
-		// 	}
-		// 	steps {
-		// 		dir("deploy") {
-		// 			sh "set-new-version simple-suggest-1-1.yml ${env.GITLAB_PRIVATE_TOKEN} ai/simple-suggest-secrets ${env.DOCKER_TAG} -b prod"
-		// 		}
-		// 		build job: "ai/simple-suggest/simple-suggest-deploy/prod", wait: true
-		// 	}
-		// }
-		// stage("validate prod") {
-		// 	agent {
-		// 		docker {
-		// 			label workerNode
-		// 			image "docker.dbc.dk/build-env"
-		// 			alwaysPull true
-		// 		}
-		// 	}
-		// 	when {
-		// 		branch "master"
-		// 	}
-		// 	steps {
-		// 		sh "webservice-validation http://simple-suggest-1-1.mi-prod.svc.cloud.dbc.dk deploy/validation.yml"
-		// 	}
-		// }
+		stage("update version number for prod") {
+			agent {
+				docker {
+					label workerNode
+					image "docker.dbc.dk/build-env"
+					alwaysPull true
+				}
+			}
+			when {
+				branch "main"
+			}
+			steps {
+				dir("deploy") {
+					sh "set-new-version skolegpt-web-ui-1-0.yml ${env.GITLAB_PRIVATE_TOKEN} ai/skolegpt-web-ui-secrets ${env.DOCKER_TAG} -b prod"
+				}
+				build job: "ai/skolegpt/skolegpt-web-ui-deploy/prod", wait: true
+			}
+		}
     }
 	// post {
 	// 	unstable {
