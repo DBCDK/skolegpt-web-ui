@@ -15,10 +15,12 @@ pipeline {
     stages {
 		stage("docker build") {
 			steps {
+				script {
 				image = docker.build("docker-ai.artifacts.dbccloud.dk/skolegpt-web-ui:${DOCKER_TAG}", "--no-cache .")
 				image.push()
-				if(env.BRANCH_NAME == "master") {
+				if(env.BRANCH_NAME == "main") {
 					image.push("latest")
+					}
 				}
 			}
 		}
