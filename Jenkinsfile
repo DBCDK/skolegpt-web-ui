@@ -39,7 +39,7 @@ pipeline {
 				dir("deploy") {
 					sh "set-new-version skolegpt-web-ui-1-0.yml ${env.GITLAB_PRIVATE_TOKEN} ai/skolegpt-web-ui-secrets ${env.DOCKER_TAG} -b staging"
 				}
-				build job: "ai/skolegpt/skolegpt-web-ui-deploy/staging", wait: true
+				build job: "ai/skoleGPT/skolegpt-web-ui-deploy/staging", wait: true
 			}
 		}
 		stage("update version number for prod") {
@@ -57,7 +57,7 @@ pipeline {
 				dir("deploy") {
 					sh "set-new-version skolegpt-web-ui-1-0.yml ${env.GITLAB_PRIVATE_TOKEN} ai/skolegpt-web-ui-secrets ${env.DOCKER_TAG} -b prod"
 				}
-				build job: "ai/skolegpt/skolegpt-web-ui-deploy/prod", wait: true
+				build job: "ai/skoleGPT/skolegpt-web-ui-deploy/prod", wait: true
 			}
 		}
     }
