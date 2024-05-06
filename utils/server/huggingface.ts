@@ -6,19 +6,19 @@ import {
   createParser,
 } from 'eventsource-parser';
 
-const isModelRunning = async (org: string, modelName: string, accessToken: string) => {
-  const url = `https://api.endpoints.huggingface.cloud/v2/endpoint/${org}/${modelName}`;
-  const response = await fetch(url, {
-    method: 'GET',
-    headers: {
-      Authorization: `Bearer ${accessToken}`
-    }
-  });
-  // Parsing the JSON response
-  const result = await response.json();
-  const running = result.status.state === 'running';
-  return running
-};
+// const isModelRunning = async (org: string, modelName: string, accessToken: string) => {
+//   const url = `https://api.endpoints.huggingface.cloud/v2/endpoint/${org}/${modelName}`;
+//   const response = await fetch(url, {
+//     method: 'GET',
+//     headers: {
+//       Authorization: `Bearer ${accessToken}`
+//     }
+//   });
+//   // Parsing the JSON response
+//   const result = await response.json();
+//   const running = result.status.state === 'running';
+//   return running
+// };
 
 export class HFModelNotReady extends Error {
   constructor(message: string) {
@@ -33,11 +33,11 @@ export const HuggingFaceStream = async (
   formattedMessages: string
 ) => {
   // Load endpoint and accessToken from Env Variables
-  const endpoint = process.env.SKOLE_ENDPOINT || '';
+  const endpoint = 'http://text-generation-inference-mixtral-8-7b-1-0.mi-prod.svc.cloud.dbc.dk';
   const accessToken = process.env.SKOLE_ACCESS_TOKEN || '';
   const org = process.env.SKOLE_HF_ORGANIZATION || '';
   const modelName = process.env.SKOLE_HF_MODEL_NAME || '';
-
+    console.log("Used endpoint: " + endpoint);
   //generation parameter
   const gen_kwargs = {
     max_new_tokens: 1024,
@@ -49,18 +49,18 @@ export const HuggingFaceStream = async (
   const hf = new HfInferenceEndpoint(endpoint, accessToken)
   const HFstream = hf.textGenerationStream({ inputs: formattedMessages, parameters: gen_kwargs })
   // Check if model is running
-  const modelRunning = await isModelRunning(org, modelName, accessToken)
-  if (!modelRunning) {
-    // wake model by sending a sync request, this will throw a bad gateway error which we can ignore
-    try {
-      await hf.textGeneration({ inputs: formattedMessages, parameters: gen_kwargs })
-    } catch (error) {
-      if ((error as Error).message != "Bad Gateway"){
-        throw error;
-      }
-    }
-    throw new HFModelNotReady('Modellen er igang med at starte op. Vent 5 min og prøv igen');
-  }
+  // const modelRunning = await isModelRunning(org, modelName, accessToken)
+  // if (!modelRunning) {
+  //   // wake model by sending a sync request, this will throw a bad gateway error which we can ignore
+  //   try {
+  //     await hf.textGeneration({ inputs: formattedMessages, parameters: gen_kwargs })
+  //   } catch (error) {
+  //     if ((error as Error).message != "Bad Gateway"){
+  //       throw error;
+  //     }
+  //   }
+  //   throw new HFModelNotReady('Modellen er igang med at starte op. Vent 5 min og prøv igen');
+  // }
 
   const encoder = new TextEncoder();
 
