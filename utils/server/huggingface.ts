@@ -33,7 +33,8 @@ export const HuggingFaceStream = async (
   formattedMessages: string
 ) => {
   // Load endpoint and accessToken from Env Variables
-  const endpoint = 'http://text-generation-inference-mixtral-8-7b-1-0.mi-prod.svc.cloud.dbc.dk';
+    //const endpoint = 'http://text-generation-inference-mixtral-8-7b-1-0.mi-prod.svc.cloud.dbc.dk';
+  const endpoint = process.env.SKOLE_ENDPOINT || '';
   const accessToken = process.env.SKOLE_ACCESS_TOKEN || '';
   const org = process.env.SKOLE_HF_ORGANIZATION || '';
   const modelName = process.env.SKOLE_HF_MODEL_NAME || '';
