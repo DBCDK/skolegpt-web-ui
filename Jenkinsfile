@@ -28,7 +28,7 @@ pipeline {
 			agent {
 				docker {
 					label workerNode
-					image "docker.dbc.dk/build-env"
+					image "docker-dbc.artifacts.dbccloud.dk/build-env"
 					alwaysPull true
 				}
 			}
@@ -46,7 +46,7 @@ pipeline {
 			agent {
 				docker {
 					label workerNode
-					image "docker.dbc.dk/build-env"
+					image "docker-dbc.artifacts.dbccloud.dk/build-env"
 					alwaysPull true
 				}
 			}
