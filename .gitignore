@@ -41,3 +41,5 @@ pnpm-lock.yaml
 
 .vscode
 __azurite_db*
+
+.env
