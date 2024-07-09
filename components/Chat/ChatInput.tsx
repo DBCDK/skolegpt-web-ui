@@ -378,7 +378,7 @@ export const ChatInput = ({
           )}
         </div>
       </div>
-      <div className="px-3 pt-2 pb-3 text-center text-[12px] text-black/50 dark:text-white/50 md:px-4 md:pt-3 md:pb-6">
+      {/* <div className="px-3 pt-2 pb-3 text-center text-[12px] text-black/50 dark:text-white/50 md:px-4 md:pt-3 md:pb-6">
       {t(
           "Disclaimer: SkoleGPT er en prototype der lavet til lærer der vil undervise deres elever i hvad AI chatbots og sprogmodeler kan og ikke kan. SkoleGPT kan hjælpe dig med mange ting, men den kan svare forkert og gætter lystigt. og den kan slå over i engelsk. Vi arbejder på at gøre det bedre. Selv om SkoleGPT ikke gemmer informationer om det du skriver, så anbefaler vi at du ikke skriver personlige oplysninger om dig selv eller andre. ",
         )}
@@ -391,7 +391,7 @@ export const ChatInput = ({
           Læs mere om SkoleGPT her
         </a>
         .{' '}
-      </div>
+      </div> */}
     </div>
   );
 };
