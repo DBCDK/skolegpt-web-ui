@@ -8,17 +8,19 @@ type Props = DocumentProps & {
 
 export default function Document(props: Props) {
   const currentLocale = i18nextConfig.i18n.defaultLocale;
-    // props.__NEXT_DATA__.locale ?? i18nextConfig.i18n.defaultLocale;
+  // props.__NEXT_DATA__.locale ?? i18nextConfig.i18n.defaultLocale;
   // console.log(currentLocale);
   return (
     <Html lang={currentLocale}>
       <Head>
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-title" content="Chatbot UI"></meta>
+
         <script
-        dangerouslySetInnerHTML={{
-          __html: `   var _paq = window._paq = window._paq || [];
-          _paq.push(['trackPageView']);
+          dangerouslySetInnerHTML={{
+            __html: `   var _paq = window._paq = window._paq || [];
+        //  _paq.push(['trackPageView']);
+            _paq.push(["requireCookieConsent"]);     // <--- Add this line to the script
           _paq.push(['enableLinkTracking']);
           (function() {
             var u="https://stats.dbc.dk/";
@@ -27,8 +29,48 @@ export default function Document(props: Props) {
             var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
             g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
             })();`,
-        }}
-      />
+          }}
+        />
+        <script
+          id="Cookiebot"
+          src="https://consent.cookiebot.com/uc.js"
+
+          data-cbid={process.env.COOKIEBOT_ID}
+          data-blockingmode="auto"
+          type="text/javascript"
+        ></script>
+
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+// Cookiebot consent and Matomo connector
+  var waitForTrackerCount = 0;
+  function matomoWaitForTracker() {
+    if (typeof _paq === "undefined" || typeof Cookiebot === "undefined") {
+      if (waitForTrackerCount < 40) {
+        setTimeout(matomoWaitForTracker, 250);
+        waitForTrackerCount++;
+        return;
+      }
+    } else {
+      window.addEventListener("CookiebotOnAccept", function (e) {
+        consentSet();
+      });
+      window.addEventListener("CookiebotOnDecline", function (e) {
+        consentSet();
+      });
+    }
+  }
+  function consentSet() {
+    if (Cookiebot.consent.statistics) {
+      _paq.push(["setCookieConsentGiven"]);
+    } else {
+      _paq.push(["forgetCookieConsentGiven"]);
+    }
+  }
+  document.addEventListener("DOMContentLoaded", matomoWaitForTracker());`,
+          }}
+        ></script>
       </Head>
       <body>
         <Main />
