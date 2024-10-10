@@ -1,4 +1,5 @@
 import { DocumentProps, Head, Html, Main, NextScript } from 'next/document';
+import Script from "next/script";
 
 import i18nextConfig from '../next-i18next.config';
 
@@ -16,7 +17,8 @@ export default function Document(props: Props) {
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-title" content="Chatbot UI"></meta>
 
-        <script
+        <Script
+        id='matomo-tracking-script'
           dangerouslySetInnerHTML={{
             __html: `   var _paq = window._paq = window._paq || [];
         //  _paq.push(['trackPageView']);
@@ -31,16 +33,17 @@ export default function Document(props: Props) {
             })();`,
           }}
         />
-        <script
-          id="Cookiebot"
+        <Script
+          id="cookiebot-script"
           src="https://consent.cookiebot.com/uc.js"
 
           data-cbid={process.env.COOKIEBOT_ID}
           data-blockingmode="auto"
           type="text/javascript"
-        ></script>
+        ></Script>
 
-        <script
+        <Script
+          id="cookiebot-matomo-connector"
           dangerouslySetInnerHTML={{
             __html: `
 // Cookiebot consent and Matomo connector
@@ -70,7 +73,7 @@ export default function Document(props: Props) {
   }
   document.addEventListener("DOMContentLoaded", matomoWaitForTracker());`,
           }}
-        ></script>
+        ></Script>
       </Head>
       <body>
         <Main />
