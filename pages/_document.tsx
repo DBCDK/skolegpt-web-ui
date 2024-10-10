@@ -1,3 +1,4 @@
+/* eslint-disable-next-line  @next/next/no-sync-scripts */
 import { DocumentProps, Head, Html, Main, NextScript } from 'next/document';
 import Script from "next/script";
 
@@ -17,7 +18,7 @@ export default function Document(props: Props) {
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-title" content="Chatbot UI"></meta>
 
-        <Script
+        <script
         id='matomo-tracking-script'
           dangerouslySetInnerHTML={{
             __html: `   var _paq = window._paq = window._paq || [];
@@ -33,16 +34,19 @@ export default function Document(props: Props) {
             })();`,
           }}
         />
+
         <Script
           id="cookiebot-script"
           src="https://consent.cookiebot.com/uc.js"
 
           data-cbid={process.env.COOKIEBOT_ID}
           data-blockingmode="auto"
-          type="text/javascript"
-        ></Script>
+          strategy="beforeInteractive"
 
-        <Script
+          type="text/javascript"
+        />
+
+        <script
           id="cookiebot-matomo-connector"
           dangerouslySetInnerHTML={{
             __html: `
@@ -73,7 +77,7 @@ export default function Document(props: Props) {
   }
   document.addEventListener("DOMContentLoaded", matomoWaitForTracker());`,
           }}
-        ></Script>
+        />
       </Head>
       <body>
         <Main />
