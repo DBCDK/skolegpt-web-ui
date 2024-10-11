@@ -1,4 +1,4 @@
-import { IconFileExport, IconSettings } from '@tabler/icons-react';
+import { IconCookie, IconSettings } from '@tabler/icons-react';
 import { useContext, useState, useRef, useEffect } from 'react';
 
 import { useTranslation } from 'next-i18next';
@@ -156,7 +156,6 @@ export const ChatbarSettings = () => {
         {conversations.length > 0 ? (
           <ClearConversations onClearConversations={handleClearConversations} />
         ) : null}
-
         {/* <Import onImport={handleImportConversations} />
 
         <SidebarButton
@@ -183,6 +182,13 @@ export const ChatbarSettings = () => {
             setIsSettingDialog(false);
           }}
         />
+
+        <SidebarButton
+          text={t('Cookies')}
+          icon={<IconCookie size={18} />}
+          onClick={() => {
+            Cookiebot.show();
+          }} />
       </div>
     </div>
   );

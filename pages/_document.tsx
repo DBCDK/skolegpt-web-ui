@@ -36,8 +36,8 @@ export default function Document(props: Props) {
         />
 
         <Script
-          id="cookiebot-script"
-          src="https://consent.cookiebot.com/uc.js"
+          id="Cookiebot"
+          src="https://consent.cookiebot.eu/uc.js"
 
           data-cbid={process.env.COOKIEBOT_ID}
           data-blockingmode="auto"
