@@ -46,6 +46,8 @@ function prefilter(content: string): boolean {
   return res;
 }
 function postfilter(content: string): boolean {
+  // Disable for now
+  return false;
   const contentLower = content.toLowerCase();
   const res = POST_FILTER_STRINGS.some((filter) =>
     contentLower.includes(filter.toLowerCase()),
