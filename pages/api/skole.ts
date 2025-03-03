@@ -21,6 +21,10 @@ export const config = {
   runtime: 'edge',
 };
 
+const enablePostFilter = ['true', 1, 'yes'].includes(
+  String(process.env.ENABLE_POSTFILTER),
+);
+
 // Message format:
 //
 // <s>[INST] <<SYS>>
@@ -46,8 +50,10 @@ function prefilter(content: string): boolean {
   return res;
 }
 function postfilter(content: string): boolean {
-  // Disable for now
-  return false;
+  if (!enablePostFilter) {
+    return false;
+  }
+
   const contentLower = content.toLowerCase();
   const res = POST_FILTER_STRINGS.some((filter) =>
     contentLower.includes(filter.toLowerCase()),
