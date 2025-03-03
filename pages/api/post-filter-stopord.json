@@ -1,0 +1,482 @@
+[
+  {
+    "Kategori": "Selvskade",
+    "Stopord": "selvmord"
+  },
+  {
+    "Kategori": "Selvskade",
+    "Stopord": "skære"
+  },
+  {
+    "Kategori": "Selvskade",
+    "Stopord": "selvskade"
+  },
+  {
+    "Kategori": "Selvskade",
+    "Stopord": "gift"
+  },
+  {
+    "Kategori": "Selvskade",
+    "Stopord": "drukne"
+  },
+  {
+    "Kategori": "Selvskade",
+    "Stopord": "afslutte"
+  },
+  {
+    "Kategori": "Selvskade",
+    "Stopord": "blod"
+  },
+  {
+    "Kategori": "Selvskade",
+    "Stopord": "smerte"
+  },
+  {
+    "Kategori": "Selvskade",
+    "Stopord": "kvælning"
+  },
+  {
+    "Kategori": "Selvskade",
+    "Stopord": "depression"
+  },
+  {
+    "Kategori": "Selvskade",
+    "Stopord": "forbløde"
+  },
+  {
+    "Kategori": "Selvskade",
+    "Stopord": "såre"
+  },
+  {
+    "Kategori": "Selvskade",
+    "Stopord": "sårlægning"
+  },
+  {
+    "Kategori": "Selvskade",
+    "Stopord": "klinge"
+  },
+  {
+    "Kategori": "Selvskade",
+    "Stopord": "selvhad"
+  },
+  {
+    "Kategori": "Selvskade",
+    "Stopord": "nedbrydning"
+  },
+  {
+    "Kategori": "Våben/Sprængstof",
+    "Stopord": "våben"
+  },
+  {
+    "Kategori": "Våben/Sprængstof",
+    "Stopord": "bombe"
+  },
+  {
+    "Kategori": "Våben/Sprængstof",
+    "Stopord": "eksplosion"
+  },
+  {
+    "Kategori": "Våben/Sprængstof",
+    "Stopord": "sprængstof"
+  },
+  {
+    "Kategori": "Våben/Sprængstof",
+    "Stopord": "skydevåben"
+  },
+  {
+    "Kategori": "Våben/Sprængstof",
+    "Stopord": "kniv"
+  },
+  {
+    "Kategori": "Våben/Sprængstof",
+    "Stopord": "gevær"
+  },
+  {
+    "Kategori": "Våben/Sprængstof",
+    "Stopord": "pistol"
+  },
+  {
+    "Kategori": "Våben/Sprængstof",
+    "Stopord": "ammunition"
+  },
+  {
+    "Kategori": "Våben/Sprængstof",
+    "Stopord": "granat"
+  },
+  {
+    "Kategori": "Våben/Sprængstof",
+    "Stopord": "krudt"
+  },
+  {
+    "Kategori": "Våben/Sprængstof",
+    "Stopord": "patron"
+  },
+  {
+    "Kategori": "Våben/Sprængstof",
+    "Stopord": "tændsats"
+  },
+  {
+    "Kategori": "Våben/Sprængstof",
+    "Stopord": "riffel"
+  },
+  {
+    "Kategori": "Våben/Sprængstof",
+    "Stopord": "angreb"
+  },
+  {
+    "Kategori": "Våben/Sprængstof",
+    "Stopord": "skyderi"
+  },
+  {
+    "Kategori": "Våben/Sprængstof",
+    "Stopord": "hagl"
+  },
+  {
+    "Kategori": "Våben/Sprængstof",
+    "Stopord": "missil"
+  },
+  {
+    "Kategori": "Våben/Sprængstof",
+    "Stopord": "kugle"
+  },
+  {
+    "Kategori": "Ekstreme diæter",
+    "Stopord": "sult"
+  },
+  {
+    "Kategori": "Ekstreme diæter",
+    "Stopord": "faste"
+  },
+  {
+    "Kategori": "Ekstreme diæter",
+    "Stopord": "kalorier"
+  },
+  {
+    "Kategori": "Ekstreme diæter",
+    "Stopord": "undervægt"
+  },
+  {
+    "Kategori": "Ekstreme diæter",
+    "Stopord": "afmagring"
+  },
+  {
+    "Kategori": "Ekstreme diæter",
+    "Stopord": "slankekur"
+  },
+  {
+    "Kategori": "Ekstreme diæter",
+    "Stopord": "diæt"
+  },
+  {
+    "Kategori": "Ekstreme diæter",
+    "Stopord": "vægt"
+  },
+  {
+    "Kategori": "Ekstreme diæter",
+    "Stopord": "madfri"
+  },
+  {
+    "Kategori": "Ekstreme diæter",
+    "Stopord": "underernæring"
+  },
+  {
+    "Kategori": "Ekstreme diæter",
+    "Stopord": "spisevægring"
+  },
+  {
+    "Kategori": "Ekstreme diæter",
+    "Stopord": "restriktion"
+  },
+  {
+    "Kategori": "Ekstreme diæter",
+    "Stopord": "underernæret"
+  },
+  {
+    "Kategori": "Ekstreme diæter",
+    "Stopord": "udmagring"
+  },
+  {
+    "Kategori": "Ekstreme diæter",
+    "Stopord": "lavkalorie"
+  },
+  {
+    "Kategori": "Ekstreme diæter",
+    "Stopord": "kropsvægt"
+  },
+  {
+    "Kategori": "Ekstreme diæter",
+    "Stopord": "sultestrejke"
+  },
+  {
+    "Kategori": "Had/Diskrimination",
+    "Stopord": "racist"
+  },
+  {
+    "Kategori": "Had/Diskrimination",
+    "Stopord": "hadefuld"
+  },
+  {
+    "Kategori": "Had/Diskrimination",
+    "Stopord": "foragt"
+  },
+  {
+    "Kategori": "Had/Diskrimination",
+    "Stopord": "homofobi"
+  },
+  {
+    "Kategori": "Had/Diskrimination",
+    "Stopord": "islamofobi"
+  },
+  {
+    "Kategori": "Had/Diskrimination",
+    "Stopord": "antisemitisme"
+  },
+  {
+    "Kategori": "Had/Diskrimination",
+    "Stopord": "diskrimination"
+  },
+  {
+    "Kategori": "Had/Diskrimination",
+    "Stopord": "sexisme"
+  },
+  {
+    "Kategori": "Had/Diskrimination",
+    "Stopord": "hatecrime"
+  },
+  {
+    "Kategori": "Had/Diskrimination",
+    "Stopord": "racehad"
+  },
+  {
+    "Kategori": "Had/Diskrimination",
+    "Stopord": "nazisme"
+  },
+  {
+    "Kategori": "Had/Diskrimination",
+    "Stopord": "intolerant"
+  },
+  {
+    "Kategori": "Had/Diskrimination",
+    "Stopord": "segregation"
+  },
+  {
+    "Kategori": "Had/Diskrimination",
+    "Stopord": "chauvinisme"
+  },
+  {
+    "Kategori": "Had/Diskrimination",
+    "Stopord": "partiskhed"
+  },
+  {
+    "Kategori": "Seksuelt explicit/Voldeligt",
+    "Stopord": "pornografi"
+  },
+  {
+    "Kategori": "Seksuelt explicit/Voldeligt",
+    "Stopord": "voldtægt"
+  },
+  {
+    "Kategori": "Seksuelt explicit/Voldeligt",
+    "Stopord": "penetration"
+  },
+  {
+    "Kategori": "Seksuelt explicit/Voldeligt",
+    "Stopord": "sadisme"
+  },
+  {
+    "Kategori": "Seksuelt explicit/Voldeligt",
+    "Stopord": "incest"
+  },
+  {
+    "Kategori": "Seksuelt explicit/Voldeligt",
+    "Stopord": "slaveri"
+  },
+  {
+    "Kategori": "Seksuelt explicit/Voldeligt",
+    "Stopord": "pornografisk"
+  },
+  {
+    "Kategori": "Opfordring til vold",
+    "Stopord": "dræb"
+  },
+  {
+    "Kategori": "Opfordring til vold",
+    "Stopord": "vold"
+  },
+  {
+    "Kategori": "Opfordring til vold",
+    "Stopord": "angreb"
+  },
+  {
+    "Kategori": "Opfordring til vold",
+    "Stopord": "terror"
+  },
+  {
+    "Kategori": "Opfordring til vold",
+    "Stopord": "massakre"
+  },
+  {
+    "Kategori": "Opfordring til vold",
+    "Stopord": "mishandle"
+  },
+  {
+    "Kategori": "Opfordring til vold",
+    "Stopord": "myrde"
+  },
+  {
+    "Kategori": "Opfordring til vold",
+    "Stopord": "overfald"
+  },
+  {
+    "Kategori": "Opfordring til vold",
+    "Stopord": "brutal"
+  },
+  {
+    "Kategori": "Opfordring til vold",
+    "Stopord": "tortur"
+  },
+  {
+    "Kategori": "Opfordring til vold",
+    "Stopord": "henrette"
+  },
+  {
+    "Kategori": "Opfordring til vold",
+    "Stopord": "voldtage"
+  },
+  {
+    "Kategori": "Opfordring til vold",
+    "Stopord": "forfølgelse"
+  },
+  {
+    "Kategori": "Opfordring til vold",
+    "Stopord": "knivstik"
+  },
+  {
+    "Kategori": "Opfordring til vold",
+    "Stopord": "afstraffelse"
+  },
+  {
+    "Kategori": "Privatliv/Doxxing",
+    "Stopord": "adresse"
+  },
+  {
+    "Kategori": "Privatliv/Doxxing",
+    "Stopord": "telefonnummer"
+  },
+  {
+    "Kategori": "Privatliv/Doxxing",
+    "Stopord": "identitet"
+  },
+  {
+    "Kategori": "Privatliv/Doxxing",
+    "Stopord": "kontonummer"
+  },
+  {
+    "Kategori": "Privatliv/Doxxing",
+    "Stopord": "password"
+  },
+  {
+    "Kategori": "Privatliv/Doxxing",
+    "Stopord": "cpr"
+  },
+  {
+    "Kategori": "Privatliv/Doxxing",
+    "Stopord": "bankoplysninger"
+  },
+  {
+    "Kategori": "Privatliv/Doxxing",
+    "Stopord": "doxxing"
+  },
+  {
+    "Kategori": "Privatliv/Doxxing",
+    "Stopord": "hjemmeadresse"
+  },
+  {
+    "Kategori": "Privatliv/Doxxing",
+    "Stopord": "datalæk"
+  },
+  {
+    "Kategori": "Privatliv/Doxxing",
+    "Stopord": "privatliv"
+  },
+  {
+    "Kategori": "Privatliv/Doxxing",
+    "Stopord": "adgangskode"
+  },
+  {
+    "Kategori": "Privatliv/Doxxing",
+    "Stopord": "kodeord"
+  },
+  {
+    "Kategori": "Misinformation/Konspiration",
+    "Stopord": "plandemi"
+  },
+  {
+    "Kategori": "Misinformation/Konspiration",
+    "Stopord": "chemtrails"
+  },
+  {
+    "Kategori": "Misinformation/Konspiration",
+    "Stopord": "forfalskning"
+  },
+  {
+    "Kategori": "Misinformation/Konspiration",
+    "Stopord": "massesvindel"
+  },
+  {
+    "Kategori": "Misinformation/Konspiration",
+    "Stopord": "QAnon"
+  },
+  {
+    "Kategori": "Misinformation/Konspiration",
+    "Stopord": "sammensværgelse"
+  },
+  {
+    "Kategori": "Misinformation/Konspiration",
+    "Stopord": "deepstate"
+  },
+  {
+    "Kategori": "Misinformation/Konspiration",
+    "Stopord": "propaganda"
+  },
+  {
+    "Kategori": "Uautoriseret Jura/Medicin",
+    "Stopord": "retsmedicin"
+  },
+  {
+    "Kategori": "Uautoriseret Jura/Medicin",
+    "Stopord": "sagsfusk"
+  },
+  {
+    "Kategori": "Uautoriseret Jura/Medicin",
+    "Stopord": "juridisk"
+  },
+  {
+    "Kategori": "Uautoriseret Jura/Medicin",
+    "Stopord": "lægekonsultation"
+  },
+  {
+    "Kategori": "Uautoriseret Jura/Medicin",
+    "Stopord": "domfældelse"
+  },
+  {
+    "Kategori": "Uautoriseret Jura/Medicin",
+    "Stopord": "strafferet"
+  },
+  {
+    "Kategori": "Uautoriseret Jura/Medicin",
+    "Stopord": "sundhedssvindel"
+  },
+  {
+    "Kategori": "Akademisk snyd",
+    "Stopord": "plagiat"
+  },
+  {
+    "Kategori": "Akademisk snyd",
+    "Stopord": "eksamenssnyd"
+  },
+  {
+    "Kategori": "Akademisk snyd",
+    "Stopord": "ghostwriting"
+  }
+]
