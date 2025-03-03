@@ -42,24 +42,24 @@ pipeline {
 				build job: "ai/SkoleGPT/skolegpt-web-ui-deploy/staging", wait: true
 			}
 		}
-		stage("update version number for prod") {
-			agent {
-				docker {
-					label workerNode
-					image "docker-dbc.artifacts.dbccloud.dk/build-env"
-					alwaysPull true
-				}
-			}
-			when {
-				branch "main"
-			}
-			steps {
-				dir("deploy") {
-					sh "set-new-version skolegpt-web-ui-1-0.yml ${env.GITLAB_PRIVATE_TOKEN} ai/skolegpt-web-ui-secrets ${env.DOCKER_TAG} -b prod"
-				}
-				build job: "ai/SkoleGPT/skolegpt-web-ui-deploy/prod", wait: true
-			}
-		}
+		// stage("update version number for prod") {
+		// 	agent {
+		// 		docker {
+		// 			label workerNode
+		// 			image "docker-dbc.artifacts.dbccloud.dk/build-env"
+		// 			alwaysPull true
+		// 		}
+		// 	}
+		// 	when {
+		// 		branch "main"
+		// 	}
+		// 	steps {
+		// 		dir("deploy") {
+		// 			sh "set-new-version skolegpt-web-ui-1-0.yml ${env.GITLAB_PRIVATE_TOKEN} ai/skolegpt-web-ui-secrets ${env.DOCKER_TAG} -b prod"
+		// 		}
+		// 		build job: "ai/SkoleGPT/skolegpt-web-ui-deploy/prod", wait: true
+		// 	}
+		// }
     }
 	// post {
 	// 	unstable {

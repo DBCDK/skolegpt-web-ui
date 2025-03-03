@@ -1,4 +1,4 @@
-import { DEFAULT_SYSTEM_PROMPT, DEFAULT_TEMPERATURE, DEFAULT_TOP_P } from '@/utils/app/const';
+import { DEFAULT_SYSTEM_PROMPT,POST_PROMPT, DEFAULT_TEMPERATURE, DEFAULT_TOP_P } from '@/utils/app/const';
 import { HFModelNotReady } from '@/utils/server/huggingface';
 import { HuggingFaceStream } from '@/utils/server/huggingface';
 
@@ -38,7 +38,8 @@ const llmFormat = (sysPrompt: string, msgs: Message[]): string => {
 const handler = async (req: Request): Promise<Response> => {
   try {
     const { model, messages, prompt, temperature, topP } = (await req.json()) as ChatBody;
-    let promptToSend = prompt;
+    let promptToSend =  (prompt || DEFAULT_SYSTEM_PROMPT ) + POST_PROMPT;//prompt; prompt here
+
     // if (!promptToSend) {
     //   promptToSend = DEFAULT_SYSTEM_PROMPT;
     // }
