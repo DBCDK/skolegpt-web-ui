@@ -35,7 +35,9 @@ const PREFILTER_STRINGS = prefilterStop?.map((entry) =>
 const POST_FILTER_STRINGS = postfilterStop?.map((entry) =>
   entry.Stopord?.toLowerCase(),
 );
-const preFilterMessage = 'Jeg kan desværre ikke hjælpe dig.';
+const preFilterMessage =
+  'Du har overtrådt vores retningslinjer. Jeg kan desværre ikke hjælpe dig videre med denne samtale. Start evt. en ny samtale';
+
 function prefilter(content: string): boolean {
   const contentLower = content.toLowerCase();
   const res = PREFILTER_STRINGS.some((filter) =>
