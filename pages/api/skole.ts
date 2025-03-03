@@ -9,6 +9,7 @@ import { HuggingFaceStream } from '@/utils/server/huggingface';
 
 import { ChatBody, Message } from '@/types/chat';
 
+import postfilterStop from './post-filter-stopord.json';
 import prefilterStop from './pre-filter-stopord.json';
 
 // @ts-ignore
@@ -31,10 +32,20 @@ export const config = {
 const PREFILTER_STRINGS = prefilterStop?.map((entry) =>
   entry.Stopord?.toLowerCase(),
 );
+const POST_FILTER_STRINGS = postfilterStop?.map((entry) =>
+  entry.Stopord?.toLowerCase(),
+);
 const preFilterMessage = 'Jeg kan desværre ikke hjælpe dig.';
 function prefilter(content: string): boolean {
   const contentLower = content.toLowerCase();
   const res = PREFILTER_STRINGS.some((filter) =>
+    contentLower.includes(filter.toLowerCase()),
+  );
+  return res;
+}
+function postfilter(content: string): boolean {
+  const contentLower = content.toLowerCase();
+  const res = POST_FILTER_STRINGS.some((filter) =>
     contentLower.includes(filter.toLowerCase()),
   );
   return res;
@@ -110,6 +121,51 @@ const handler = async (req: Request): Promise<Response> => {
       topPToUse,
       formattedMessages,
     );
+
+    const maxWindowLength = 200;
+    const textDecoder = new TextDecoder();
+    const textEncoder = new TextEncoder();
+
+    // Wrap the original stream.
+    const interceptedStream = new ReadableStream({
+      async start(controller) {
+        const reader = stream.getReader();
+        let slidingWindow = '';
+
+        try {
+          while (true) {
+            const { done, value } = await reader.read();
+            if (done) {
+              break;
+            }
+
+            // Decode the current chunk and add it to the accumulated text.
+            const chunkText = textDecoder.decode(value, { stream: true });
+            slidingWindow += chunkText?.toLocaleLowerCase();
+            slidingWindow = slidingWindow.slice(-maxWindowLength);
+
+            // Check for the keyword. (You might want a more robust check if keywords can span chunks.)
+            if (postfilter(slidingWindow)) {
+              await reader.cancel();
+              controller.enqueue(value);
+              const customResponse =
+                '\n\nJeg bliver desværre nødt til at stoppe samtalen her.';
+              controller.enqueue(textEncoder.encode(customResponse));
+              break;
+            }
+
+            // Enqueue the original chunk.
+            controller.enqueue(value);
+          }
+        } catch (err) {
+          controller.error(err);
+        } finally {
+          controller.close();
+        }
+      },
+    });
+
+    return new Response(interceptedStream);
 
     return new Response(stream);
   } catch (error) {
