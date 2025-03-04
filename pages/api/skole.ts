@@ -79,6 +79,9 @@ const handler = async (req: Request): Promise<Response> => {
       (await req.json()) as ChatBody;
     let promptToSend = (prompt || DEFAULT_SYSTEM_PROMPT) + GUIDELINES_PROMPT; //prompt; prompt here
 
+    // Hardcode tokenLimit (don't want UI to control this)
+    const tokenLimit = 2048;
+
     // if (!promptToSend) {
     //   promptToSend = DEFAULT_SYSTEM_PROMPT;
     // }
@@ -98,7 +101,7 @@ const handler = async (req: Request): Promise<Response> => {
         llmFormat(promptToSend, [message, ...messagesToSend]),
       );
       //const tokens = llamaTokenizer.encode(llmFormat(promptToSend, [message, ...messagesToSend]))
-      if (tokens.length > model.tokenLimit - 25) {
+      if (tokens.length > tokenLimit - 25) {
         break;
       }
       messagesToSend = [message, ...messagesToSend];
