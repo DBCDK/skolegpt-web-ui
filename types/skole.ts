@@ -6,7 +6,7 @@ export interface HFModel {
 }
 
 export enum SkoleModelID {
-  MIXTRAL_8_7B = 'mixtral-8-7b'
+  MIXTRAL_8_7B = 'mixtral-8-7b',
 }
 // export enum SkoleModelID {
 //   LLAMA2_13B = 'llama2-13b'
@@ -21,6 +21,6 @@ export const SkoleModels: Record<SkoleModelID, HFModel> = {
     id: SkoleModelID.MIXTRAL_8_7B,
     name: 'Mixtral-8 7b',
     maxLength: 12000,
-    tokenLimit: 1024,
-  }
+    tokenLimit: 2048,
+  },
 };
