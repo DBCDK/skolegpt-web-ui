@@ -43,8 +43,6 @@ const handler = async (req: Request): Promise<Response> => {
       (await req.json()) as ChatBody;
     let promptToSend = prompt || DEFAULT_SYSTEM_PROMPT;
 
-    console.log({ promptToSend });
-
     // Hardcode tokenLimit (don't want UI to control this)
     const tokenLimit = 2048;
 
