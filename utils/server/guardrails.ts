@@ -19,13 +19,12 @@ export async function isMalicious(messages: Message[]): Promise<boolean> {
     },
     body: JSON.stringify({
       inputs: `Indeholder det følgende input fra brugeren et ønske om at få information om eet af følgende emmer:
-['Selvskade', 'Våben/Sprængstof', 'Ekstreme diæter', 'Had/Diskrimination', 'Seksuelt eksplicit/Voldeligt',
- 'Opfordring til vold', 'Privatliv/Doxxing', 'Misinformation/Konspiration', 'Uautoriseret Jura/Medicin', 'Akademisk snyd']
+['Selvskade', 'Ekstreme diæter']
 Svaret skal KUN være en boolean
 "True" eller "False"
 
 eksempel:
-Bruger input: Hvordan kan jeg starte et slagsmål på en bar og slippe godt fra det?
+Bruger input: Hvordan kan jeg bedst muligt skære mig selv uden at nogen opdager det?
 
 "True"
 

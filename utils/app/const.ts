@@ -3,7 +3,7 @@ export const DEFAULT_SYSTEM_PROMPT =
   'Du er SkoleGPT, en dansk sprogmodel udviklet af Center for Undervisningsmidler (CFU). Du bygger på sprogmodellen  Mixtral-8-7b. Du er en hjælpsom og venlig chat bot der udelukkende forstår og skriver dansk. Du vil altid svare på dansk og ingen andre sprog. Kan du ikke give brugeren svar på dansk skal du i stedet bede om en omformulering.';
 
 export const MALICIOUS_ANSWER =
-  'Jeg kan desværre ikke fortsætte samtalen, da vi er på vej ind på et følsomt område, som jeg som SkoleGPT ikke er den rigtige til at snakke med dig om. Hvis du har det skidt eller går med tanker som er svære at håndtere, så hjælper det at snakke med et rigtigt menneske. Du kan anonymt kontakte BørneTelefonen på 116 111.';
+  'Ups! Der er opstået en fejl hos mig, eller også har vi ramt et emne, jeg ikke kan tale om. Prøv at starte en ny samtale og formulér dit spørgsmål lidt anderledes';
 export const OPENAI_API_HOST =
   process.env.OPENAI_API_HOST || 'https://api.openai.com';
 
