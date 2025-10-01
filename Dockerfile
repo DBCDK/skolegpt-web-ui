@@ -15,8 +15,8 @@ RUN npm run build
 # ---- Production ----
 FROM node:19-alpine AS production
 
-# Create a non-root user 'node' and group 'nodejs'
-RUN addgroup -S nodejs && adduser -S node -G nodejs
+# Create a group 'nodejs' and add the existing user 'node' to this group
+RUN addgroup -S nodejs && addgroup node nodejs
 
 WORKDIR /app
 
